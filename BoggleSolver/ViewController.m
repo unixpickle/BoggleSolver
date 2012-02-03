@@ -16,11 +16,23 @@
 
 @end
 
+@interface ViewController (Private)
+
+- (void)solveBoardInBackground:(BSBoardObject *)board;
+- (void)handleSolutionArray:(NSArray *)solutions;
+
+@end
+
 @implementation ViewController
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Release any cached data, images, etc that aren't in use.
+}
+
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
+    // Return YES for supported orientations
+    return (interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);
 }
 
 #pragma mark - View Configuration -
@@ -51,7 +63,7 @@
 }
 
 - (CGRect)boardViewFrame {
-    return CGRectMake(30, 54, self.view.frame.size.width - 60, self.view.frame.size.width - 60);
+    return CGRectMake(40, 54, self.view.frame.size.width - 80, self.view.frame.size.width - 80);
 }
 
 - (void)setupTitleBar {
@@ -92,16 +104,26 @@
 }
 
 - (void)solveButton:(id)sender {
-    // solve the thingy
-    NSString * filePath = [[NSBundle mainBundle] pathForResource:@"dictionary" ofType:@"txt"];
-    BSDictionaryObject * dictionary = [[BSDictionaryObject alloc] initWithFile:filePath];
-    solutions = [[boardView board] solutionsForDictionary:dictionary];
-    [solutionTable reloadData];
+    if ([[BSLoadingController sharedLoadingController] isDisplayingScreen]) return;
+    [[BSLoadingController sharedLoadingController] showLoadingScreen];
+    BSBoardObject * boardCopy = [boardView board];
+    [NSThread detachNewThreadSelector:@selector(solveBoardInBackground:) toTarget:self withObject:boardCopy];
 }
 
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
-    // Return YES for supported orientations
-    return (interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);
+- (void)solveBoardInBackground:(BSBoardObject *)board {
+    @autoreleasepool {
+        NSString * filePath = [[NSBundle mainBundle] pathForResource:@"dictionary" ofType:@"txt"];
+        BSDictionaryObject * dictionary = [[BSDictionaryObject alloc] initWithFile:filePath];
+
+        NSArray * solutionArray = [board solutionsForDictionary:dictionary];
+        [self performSelectorOnMainThread:@selector(handleSolutionArray:) withObject:solutionArray waitUntilDone:YES];
+    }
+}
+
+- (void)handleSolutionArray:(NSArray *)_solutions {
+    solutions = _solutions;
+    [solutionTable reloadData];
+    [[BSLoadingController sharedLoadingController] closeLoadingScreen];
 }
 
 #pragma mark - Board -

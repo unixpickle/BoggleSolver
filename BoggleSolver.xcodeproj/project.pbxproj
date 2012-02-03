@@ -23,6 +23,8 @@
 		FA2C370A14DB72C000D07ECD /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA2C370914DB72C000D07ECD /* Foundation.framework */; };
 		FA2C370E14DB72DE00D07ECD /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA2C370D14DB72DE00D07ECD /* QuartzCore.framework */; };
 		FA8AB07B14DC83590098BAA2 /* BSLoadingPane.m in Sources */ = {isa = PBXBuildFile; fileRef = FA8AB07A14DC83590098BAA2 /* BSLoadingPane.m */; };
+		FA8AB07E14DC85040098BAA2 /* BSLoadingController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA8AB07D14DC85040098BAA2 /* BSLoadingController.m */; };
+		FA8AB08114DC850E0098BAA2 /* BSLoadingScreen.m in Sources */ = {isa = PBXBuildFile; fileRef = FA8AB08014DC850E0098BAA2 /* BSLoadingScreen.m */; };
 		FADC72C214D9E4550042FA22 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FADC72C114D9E4550042FA22 /* UIKit.framework */; };
 		FADC72C414D9E4550042FA22 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FADC72C314D9E4550042FA22 /* Foundation.framework */; };
 		FADC72C614D9E4550042FA22 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FADC72C514D9E4550042FA22 /* CoreGraphics.framework */; };
@@ -58,6 +60,10 @@
 		FA2C370D14DB72DE00D07ECD /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		FA8AB07914DC83590098BAA2 /* BSLoadingPane.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BSLoadingPane.h; sourceTree = "<group>"; };
 		FA8AB07A14DC83590098BAA2 /* BSLoadingPane.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BSLoadingPane.m; sourceTree = "<group>"; };
+		FA8AB07C14DC85040098BAA2 /* BSLoadingController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BSLoadingController.h; sourceTree = "<group>"; };
+		FA8AB07D14DC85040098BAA2 /* BSLoadingController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BSLoadingController.m; sourceTree = "<group>"; };
+		FA8AB07F14DC850E0098BAA2 /* BSLoadingScreen.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BSLoadingScreen.h; sourceTree = "<group>"; };
+		FA8AB08014DC850E0098BAA2 /* BSLoadingScreen.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BSLoadingScreen.m; sourceTree = "<group>"; };
 		FADC72BD14D9E4550042FA22 /* BoggleSolver.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BoggleSolver.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FADC72C114D9E4550042FA22 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		FADC72C314D9E4550042FA22 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -153,6 +159,10 @@
 			children = (
 				FA8AB07914DC83590098BAA2 /* BSLoadingPane.h */,
 				FA8AB07A14DC83590098BAA2 /* BSLoadingPane.m */,
+				FA8AB07F14DC850E0098BAA2 /* BSLoadingScreen.h */,
+				FA8AB08014DC850E0098BAA2 /* BSLoadingScreen.m */,
+				FA8AB07C14DC85040098BAA2 /* BSLoadingController.h */,
+				FA8AB07D14DC85040098BAA2 /* BSLoadingController.m */,
 			);
 			path = "Loading UI";
 			sourceTree = "<group>";
@@ -371,6 +381,8 @@
 				FA2C370314DB6EA900D07ECD /* BSDictionaryObject.m in Sources */,
 				FA2C370514DB6EA900D07ECD /* BSSolutionObject.m in Sources */,
 				FA8AB07B14DC83590098BAA2 /* BSLoadingPane.m in Sources */,
+				FA8AB07E14DC85040098BAA2 /* BSLoadingController.m in Sources */,
+				FA8AB08114DC850E0098BAA2 /* BSLoadingScreen.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

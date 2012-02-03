@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import <QuartzCore/QuartzCore.h>
 
 #define kBSLoadingPaneSize 100
 
@@ -19,6 +19,6 @@
 - (id)initWithCenter:(CGPoint)center status:(NSString *)aStatus;
 - (void)setStatus:(NSString *)status;
 - (void)showByExpanding;
-- (void)hideByShrinking;
+- (void)hideByShrinking:(void (^)())didHideBlock;
 
 @end

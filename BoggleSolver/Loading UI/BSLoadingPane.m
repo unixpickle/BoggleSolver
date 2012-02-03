@@ -14,12 +14,17 @@
     if ((self = [super initWithFrame:CGRectMake(center.x - (kBSLoadingPaneSize / 2),
                                                 center.y - (kBSLoadingPaneSize / 2),
                                                 kBSLoadingPaneSize, kBSLoadingPaneSize)])) {
-        statusLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, 20, kBSLoadingPaneSize - 20, 20)];
+        self.backgroundColor = [UIColor colorWithWhite:0 alpha:0.95];
+        self.layer.cornerRadius = 10;
+        
+        statusLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, 15, kBSLoadingPaneSize - 20, 20)];
         [statusLabel setBackgroundColor:[UIColor clearColor]];
         [statusLabel setTextColor:[UIColor whiteColor]];
+        [statusLabel setTextAlignment:UITextAlignmentCenter];
         [statusLabel setText:aStatus];
+        
         activityIndicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhite];
-        [activityIndicator setCenter:CGPointMake(kBSLoadingPaneSize / 2, kBSLoadingPaneSize / 2)];
+        [activityIndicator setCenter:CGPointMake(kBSLoadingPaneSize / 2, kBSLoadingPaneSize / 2 + 10)];
         [activityIndicator startAnimating];
         [self addSubview:statusLabel];
         [self addSubview:activityIndicator];
@@ -32,11 +37,23 @@
 }
     
 - (void)showByExpanding {
-    self.layer
+    self.layer.transform = CATransform3DMakeScale(1, 0.1, 1);
+    self.alpha = 0;
+    [UIView animateWithDuration:0.3 animations:^ {
+        self.layer.transform = CATransform3DIdentity;
+        self.alpha = 1;
+    }];
 }
 
-- (void)hideByShrinking {
-    
+- (void)hideByShrinking:(void (^)())didHideBlock {
+    [UIView animateWithDuration:0.3 animations:^ {
+        self.layer.transform = CATransform3DMakeScale(1, 0.1, 1);
+        self.alpha = 0;
+    } completion:^(BOOL finished) {
+        [self removeFromSuperview];
+        self.layer.transform = CATransform3DIdentity;
+        if (didHideBlock) didHideBlock();
+    }];
 }
 
 @end

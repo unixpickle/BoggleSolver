@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "BSBoardView.h"
+#import "BSLoadingController.h"
 
 @interface ViewController : UIViewController <BSBoardViewDelegate, UITextFieldDelegate, UITableViewDataSource> {
     BSBoardView * boardView;
