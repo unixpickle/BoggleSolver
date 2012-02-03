@@ -26,5 +26,7 @@
 
 - (void)beginEditUI;
 - (void)endEditUI;
+- (void)keyboardWillShow:(NSNotification *)notification;
+- (void)keyboardWillHide:(NSNotification *)notification;
 
 @end

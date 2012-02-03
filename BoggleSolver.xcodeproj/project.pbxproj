@@ -20,6 +20,8 @@
 		FA2C370414DB6EA900D07ECD /* BSDictionaryObject.m in Sources */ = {isa = PBXBuildFile; fileRef = FA2C36F814DB6EA900D07ECD /* BSDictionaryObject.m */; };
 		FA2C370514DB6EA900D07ECD /* BSSolutionObject.m in Sources */ = {isa = PBXBuildFile; fileRef = FA2C36FA14DB6EA900D07ECD /* BSSolutionObject.m */; };
 		FA2C370614DB6EA900D07ECD /* BSSolutionObject.m in Sources */ = {isa = PBXBuildFile; fileRef = FA2C36FA14DB6EA900D07ECD /* BSSolutionObject.m */; };
+		FA2C370A14DB72C000D07ECD /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA2C370914DB72C000D07ECD /* Foundation.framework */; };
+		FA2C370E14DB72DE00D07ECD /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA2C370D14DB72DE00D07ECD /* QuartzCore.framework */; };
 		FADC72C214D9E4550042FA22 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FADC72C114D9E4550042FA22 /* UIKit.framework */; };
 		FADC72C414D9E4550042FA22 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FADC72C314D9E4550042FA22 /* Foundation.framework */; };
 		FADC72C614D9E4550042FA22 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FADC72C514D9E4550042FA22 /* CoreGraphics.framework */; };
@@ -29,7 +31,6 @@
 		FADC72D514D9E4550042FA22 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FADC72D414D9E4550042FA22 /* ViewController.m */; };
 		FADC72D814D9E4550042FA22 /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FADC72D614D9E4550042FA22 /* ViewController.xib */; };
 		FADC72E914D9EAD20042FA22 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FADC72E814D9EAD20042FA22 /* SenTestingKit.framework */; };
-		FADC72EB14D9EAD20042FA22 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FADC72EA14D9EAD20042FA22 /* Cocoa.framework */; };
 		FADC72F514D9EAD20042FA22 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = FADC72F314D9EAD20042FA22 /* InfoPlist.strings */; };
 		FADC730014D9EB030042FA22 /* BSBoardTest.m in Sources */ = {isa = PBXBuildFile; fileRef = FADC72FF14D9EB030042FA22 /* BSBoardTest.m */; };
 		FADC730714D9F4140042FA22 /* BSDictionaryTest.m in Sources */ = {isa = PBXBuildFile; fileRef = FADC730614D9F4140042FA22 /* BSDictionaryTest.m */; };
@@ -52,6 +53,8 @@
 		FA2C36F814DB6EA900D07ECD /* BSDictionaryObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BSDictionaryObject.m; sourceTree = "<group>"; };
 		FA2C36F914DB6EA900D07ECD /* BSSolutionObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BSSolutionObject.h; sourceTree = "<group>"; };
 		FA2C36FA14DB6EA900D07ECD /* BSSolutionObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BSSolutionObject.m; sourceTree = "<group>"; };
+		FA2C370914DB72C000D07ECD /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = SDKs/MacOSX10.7.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		FA2C370D14DB72DE00D07ECD /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		FADC72BD14D9E4550042FA22 /* BoggleSolver.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BoggleSolver.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FADC72C114D9E4550042FA22 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		FADC72C314D9E4550042FA22 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -88,6 +91,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA2C370E14DB72DE00D07ECD /* QuartzCore.framework in Frameworks */,
 				FADC72C214D9E4550042FA22 /* UIKit.framework in Frameworks */,
 				FADC72C414D9E4550042FA22 /* Foundation.framework in Frameworks */,
 				FADC72C614D9E4550042FA22 /* CoreGraphics.framework in Frameworks */,
@@ -98,8 +102,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA2C370A14DB72C000D07ECD /* Foundation.framework in Frameworks */,
 				FADC72E914D9EAD20042FA22 /* SenTestingKit.framework in Frameworks */,
-				FADC72EB14D9EAD20042FA22 /* Cocoa.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -164,6 +168,8 @@
 		FADC72C014D9E4550042FA22 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				FA2C370D14DB72DE00D07ECD /* QuartzCore.framework */,
+				FA2C370914DB72C000D07ECD /* Foundation.framework */,
 				FADC72C114D9E4550042FA22 /* UIKit.framework */,
 				FADC72C314D9E4550042FA22 /* Foundation.framework */,
 				FADC72C514D9E4550042FA22 /* CoreGraphics.framework */,

@@ -40,6 +40,11 @@
     boardView = [[BSBoardView alloc] initWithFrame:CGRectMake(4, 48, 312, 312) board:board];
     [boardView setDelegate:self];
     [self.view addSubview:boardView];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:)
+                                                 name:UIKeyboardWillShowNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHide:)
+                                                 name:UIKeyboardWillHideNotification object:nil];
 }
 
 - (void)setupTitleBar {
@@ -71,7 +76,11 @@
 }
 
 - (void)solveButton:(id)sender {
-    
+    // solve the thingy
+    NSString * filePath = [[NSBundle mainBundle] pathForResource:@"dictionary" ofType:@"txt"];
+    BSDictionaryObject * dictionary = [[BSDictionaryObject alloc] initWithFile:filePath];
+    NSArray * solutions = [[boardView board] solutionsForDictionary:dictionary];
+    NSLog(@"Solutions: %@", solutions);
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
@@ -100,7 +109,6 @@
     [boardView setEditingCell:0];
     [boardView setNeedsDisplay];
     [navItem setRightBarButtonItem:doneButton animated:YES];
-    // TODO: resize the board
 }
 
 - (void)endEditUI {
@@ -110,7 +118,24 @@
     [boardView setBoardState:BSBoardViewStateDefault];
     [boardView setNeedsDisplay];
     [navItem setRightBarButtonItem:editButton animated:YES];
-    // TODO: resize the board
+}
+
+- (void)keyboardWillShow:(NSNotification *)notification {
+    CGRect frame;
+    [[[notification userInfo] objectForKey:UIKeyboardFrameEndUserInfoKey] getValue:&frame];
+    NSNumber * duration = [[notification userInfo] objectForKey:UIKeyboardAnimationDurationUserInfoKey];
+    // calculate the frame of the board
+    CGRect usableRect = CGRectMake(0, 44, self.view.frame.size.width,
+                                   self.view.frame.size.height - 44 - frame.size.height);
+    CGFloat scaledSize = usableRect.size.height - 20;
+    [boardView animateToFrame:CGRectMake(usableRect.size.width / 2 - scaledSize / 2,
+                                         usableRect.origin.y + 10, scaledSize, scaledSize)
+                     duration:[duration doubleValue]];
+}
+
+- (void)keyboardWillHide:(NSNotification *)notification {
+    NSNumber * duration = [[notification userInfo] objectForKey:UIKeyboardAnimationDurationUserInfoKey];
+    [boardView animateToFrame:CGRectMake(4, 48, 312, 312) duration:[duration doubleValue]];
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {

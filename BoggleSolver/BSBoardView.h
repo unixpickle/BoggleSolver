@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <QuartzCore/QuartzCore.h>
 #import "BSBoardObject.h"
 
 typedef enum {
@@ -42,6 +43,7 @@ typedef enum {
 
 - (id)initWithFrame:(CGRect)frame board:(BSBoardObject *)aBoard;
 - (void)animateToFrame:(CGRect)aFrame;
+- (void)animateToFrame:(CGRect)aFrame duration:(NSTimeInterval)duration;
 - (void)setLetterAtEditingIndex:(char)aLetter;
 
 @end

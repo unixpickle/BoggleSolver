@@ -32,7 +32,15 @@
 }
 
 - (void)animateToFrame:(CGRect)aFrame {
-    [UIView animateWithDuration:0.5 animations:^ {
+    [self animateToFrame:aFrame duration:0.5];
+}
+
+- (void)animateToFrame:(CGRect)aFrame duration:(NSTimeInterval)duration {
+    self.contentMode = UIViewContentModeRedraw;
+    self.layer.needsDisplayOnBoundsChange = YES;
+    self.clipsToBounds = YES;
+    
+    [UIView animateWithDuration:duration animations:^ {
         [self setFrame:aFrame];
     }];
 }
