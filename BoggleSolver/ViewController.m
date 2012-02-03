@@ -112,10 +112,12 @@
 
 - (void)solveBoardInBackground:(BSBoardObject *)board {
     @autoreleasepool {
+        NSDate * waitUntil = [NSDate dateWithTimeIntervalSinceNow:0.6];
         NSString * filePath = [[NSBundle mainBundle] pathForResource:@"dictionary" ofType:@"txt"];
         BSDictionaryObject * dictionary = [[BSDictionaryObject alloc] initWithFile:filePath];
 
         NSArray * solutionArray = [board solutionsForDictionary:dictionary];
+        [NSThread sleepUntilDate:waitUntil];
         [self performSelectorOnMainThread:@selector(handleSolutionArray:) withObject:solutionArray waitUntilDone:YES];
     }
 }
