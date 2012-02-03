@@ -49,6 +49,10 @@
     NSUInteger x = editingCell % [board width];
     NSUInteger y = editingCell / [board width];
     [board setLetter:aLetter atX:x y:y];
+    editingCell++;
+    if (editingCell >= [board width] * [board height]) {
+        editingCell = 0;
+    }
     [self setNeedsDisplay];
 }
 
@@ -80,7 +84,7 @@
             }
             
             char letter = [board letterAtX:x y:y];
-            NSString * labelString = [NSString stringWithFormat:@"%c", letter];
+            NSString * labelString = [NSString stringWithFormat:@"%c", toupper(letter)];
             UIFont * labelFont = [UIFont boldSystemFontOfSize:18];
             CGSize labelSize = [labelString sizeWithFont:labelFont];
             CGRect labelFrame = CGRectMake(cellFrame.size.width / 2 - labelSize.width / 2 + cellFrame.origin.x,

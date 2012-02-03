@@ -186,6 +186,7 @@
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
     if ([string length] == 1) {
         unichar letter = tolower([string characterAtIndex:0]);
+        if (letter < 'a' || letter > 'z') return NO;
         [boardView setLetterAtEditingIndex:letter];
     }
     return NO;
