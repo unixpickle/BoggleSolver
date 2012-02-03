@@ -106,7 +106,7 @@
 - (void)solveButton:(id)sender {
     if ([[BSLoadingController sharedLoadingController] isDisplayingScreen]) return;
     [[BSLoadingController sharedLoadingController] showLoadingScreen];
-    BSBoardObject * boardCopy = [boardView board];
+    BSBoardObject * boardCopy = [[boardView board] copy];
     [NSThread detachNewThreadSelector:@selector(solveBoardInBackground:) toTarget:self withObject:boardCopy];
 }
 

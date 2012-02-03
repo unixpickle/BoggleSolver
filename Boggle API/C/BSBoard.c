@@ -17,6 +17,15 @@ BSBoardRef bs_board_create(const char * pieces, uint8_t width, uint8_t height) {
     return board;
 }
 
+BSBoardRef bs_board_duplicate(BSBoardRef board) {
+    BSBoardRef newBoard = (BSBoardRef)malloc(sizeof(struct _BSBoard));
+    newBoard->width = board->width;
+    newBoard->height = board->height;
+    newBoard->pieces = (char *)malloc(board->width * board->height);
+    memcpy(newBoard->pieces, board->pieces, board->width * board->height);
+    return newBoard;
+}
+
 void bs_board_free(BSBoardRef board) {
     free(board->pieces);
     free(board);

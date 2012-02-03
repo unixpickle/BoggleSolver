@@ -11,7 +11,7 @@
 #import "BSDictionaryObject.h"
 #include "BSBoard.h"
 
-@interface BSBoardObject : NSObject {
+@interface BSBoardObject : NSObject <NSCopying> {
     BSBoardRef board;
 }
 

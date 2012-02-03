@@ -23,6 +23,7 @@ typedef struct _BSBoard * BSBoardRef;
 typedef void (*BSAdjacentCallback)(void * userInfo, uint8_t x, uint8_t y);
 
 BSBoardRef bs_board_create(const char * pieces, uint8_t width, uint8_t height);
+BSBoardRef bs_board_duplicate(BSBoardRef board);
 void bs_board_free(BSBoardRef board);
 
 char bs_board_get(BSBoardRef board, uint8_t x, uint8_t y);

@@ -33,6 +33,11 @@
     return board;
 }
 
+- (id)copyWithZone:(NSZone *)zone {
+    BSBoardRef boardCopy = bs_board_duplicate(board);
+    return [[BSBoardObject allocWithZone:zone] initWithBoardRef:boardCopy];
+}
+
 #pragma mark - Information -
 
 - (NSUInteger)width {
