@@ -8,6 +8,18 @@
 
 /* Begin PBXBuildFile section */
 		FA2C36EA14DB5E6D00D07ECD /* BSBoardView.m in Sources */ = {isa = PBXBuildFile; fileRef = FA2C36E914DB5E6D00D07ECD /* BSBoardView.m */; };
+		FA2C36FB14DB6EA900D07ECD /* BSBoard.c in Sources */ = {isa = PBXBuildFile; fileRef = FA2C36EE14DB6EA900D07ECD /* BSBoard.c */; };
+		FA2C36FC14DB6EA900D07ECD /* BSBoard.c in Sources */ = {isa = PBXBuildFile; fileRef = FA2C36EE14DB6EA900D07ECD /* BSBoard.c */; };
+		FA2C36FD14DB6EA900D07ECD /* BSDictionary.c in Sources */ = {isa = PBXBuildFile; fileRef = FA2C36F014DB6EA900D07ECD /* BSDictionary.c */; };
+		FA2C36FE14DB6EA900D07ECD /* BSDictionary.c in Sources */ = {isa = PBXBuildFile; fileRef = FA2C36F014DB6EA900D07ECD /* BSDictionary.c */; };
+		FA2C36FF14DB6EA900D07ECD /* BSSolver.c in Sources */ = {isa = PBXBuildFile; fileRef = FA2C36F214DB6EA900D07ECD /* BSSolver.c */; };
+		FA2C370014DB6EA900D07ECD /* BSSolver.c in Sources */ = {isa = PBXBuildFile; fileRef = FA2C36F214DB6EA900D07ECD /* BSSolver.c */; };
+		FA2C370114DB6EA900D07ECD /* BSBoardObject.m in Sources */ = {isa = PBXBuildFile; fileRef = FA2C36F614DB6EA900D07ECD /* BSBoardObject.m */; };
+		FA2C370214DB6EA900D07ECD /* BSBoardObject.m in Sources */ = {isa = PBXBuildFile; fileRef = FA2C36F614DB6EA900D07ECD /* BSBoardObject.m */; };
+		FA2C370314DB6EA900D07ECD /* BSDictionaryObject.m in Sources */ = {isa = PBXBuildFile; fileRef = FA2C36F814DB6EA900D07ECD /* BSDictionaryObject.m */; };
+		FA2C370414DB6EA900D07ECD /* BSDictionaryObject.m in Sources */ = {isa = PBXBuildFile; fileRef = FA2C36F814DB6EA900D07ECD /* BSDictionaryObject.m */; };
+		FA2C370514DB6EA900D07ECD /* BSSolutionObject.m in Sources */ = {isa = PBXBuildFile; fileRef = FA2C36FA14DB6EA900D07ECD /* BSSolutionObject.m */; };
+		FA2C370614DB6EA900D07ECD /* BSSolutionObject.m in Sources */ = {isa = PBXBuildFile; fileRef = FA2C36FA14DB6EA900D07ECD /* BSSolutionObject.m */; };
 		FADC72C214D9E4550042FA22 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FADC72C114D9E4550042FA22 /* UIKit.framework */; };
 		FADC72C414D9E4550042FA22 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FADC72C314D9E4550042FA22 /* Foundation.framework */; };
 		FADC72C614D9E4550042FA22 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FADC72C514D9E4550042FA22 /* CoreGraphics.framework */; };
@@ -16,30 +28,30 @@
 		FADC72D214D9E4550042FA22 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FADC72D114D9E4550042FA22 /* AppDelegate.m */; };
 		FADC72D514D9E4550042FA22 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FADC72D414D9E4550042FA22 /* ViewController.m */; };
 		FADC72D814D9E4550042FA22 /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FADC72D614D9E4550042FA22 /* ViewController.xib */; };
-		FADC72E014D9E5F10042FA22 /* BSBoard.c in Sources */ = {isa = PBXBuildFile; fileRef = FADC72DF14D9E5F10042FA22 /* BSBoard.c */; };
 		FADC72E914D9EAD20042FA22 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FADC72E814D9EAD20042FA22 /* SenTestingKit.framework */; };
 		FADC72EB14D9EAD20042FA22 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FADC72EA14D9EAD20042FA22 /* Cocoa.framework */; };
 		FADC72F514D9EAD20042FA22 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = FADC72F314D9EAD20042FA22 /* InfoPlist.strings */; };
-		FADC72FD14D9EAF10042FA22 /* BSBoard.c in Sources */ = {isa = PBXBuildFile; fileRef = FADC72DF14D9E5F10042FA22 /* BSBoard.c */; };
 		FADC730014D9EB030042FA22 /* BSBoardTest.m in Sources */ = {isa = PBXBuildFile; fileRef = FADC72FF14D9EB030042FA22 /* BSBoardTest.m */; };
-		FADC730214D9EF7A0042FA22 /* BSDictionary.c in Sources */ = {isa = PBXBuildFile; fileRef = FADC730114D9EF7A0042FA22 /* BSDictionary.c */; };
-		FADC730414D9F2620042FA22 /* BSDictionary.c in Sources */ = {isa = PBXBuildFile; fileRef = FADC730114D9EF7A0042FA22 /* BSDictionary.c */; };
 		FADC730714D9F4140042FA22 /* BSDictionaryTest.m in Sources */ = {isa = PBXBuildFile; fileRef = FADC730614D9F4140042FA22 /* BSDictionaryTest.m */; };
-		FADC730D14D9F8140042FA22 /* BSSolver.c in Sources */ = {isa = PBXBuildFile; fileRef = FADC730C14D9F8140042FA22 /* BSSolver.c */; };
-		FADC730E14D9F8140042FA22 /* BSSolver.c in Sources */ = {isa = PBXBuildFile; fileRef = FADC730C14D9F8140042FA22 /* BSSolver.c */; };
 		FADC731114DA01840042FA22 /* BSSolverTest.m in Sources */ = {isa = PBXBuildFile; fileRef = FADC731014DA01840042FA22 /* BSSolverTest.m */; };
-		FADC731614DA0BBE0042FA22 /* BSBoardObject.m in Sources */ = {isa = PBXBuildFile; fileRef = FADC731514DA0BBE0042FA22 /* BSBoardObject.m */; };
-		FADC731714DA0BBE0042FA22 /* BSBoardObject.m in Sources */ = {isa = PBXBuildFile; fileRef = FADC731514DA0BBE0042FA22 /* BSBoardObject.m */; };
-		FADC731A14DA0BD60042FA22 /* BSDictionaryObject.m in Sources */ = {isa = PBXBuildFile; fileRef = FADC731914DA0BD60042FA22 /* BSDictionaryObject.m */; };
-		FADC731B14DA0BD60042FA22 /* BSDictionaryObject.m in Sources */ = {isa = PBXBuildFile; fileRef = FADC731914DA0BD60042FA22 /* BSDictionaryObject.m */; };
-		FADC731E14DA0FEE0042FA22 /* BSSolutionObject.m in Sources */ = {isa = PBXBuildFile; fileRef = FADC731D14DA0FEE0042FA22 /* BSSolutionObject.m */; };
-		FADC731F14DA0FEE0042FA22 /* BSSolutionObject.m in Sources */ = {isa = PBXBuildFile; fileRef = FADC731D14DA0FEE0042FA22 /* BSSolutionObject.m */; };
 		FADC732114DA11F70042FA22 /* dictionary.txt in Resources */ = {isa = PBXBuildFile; fileRef = FADC732014DA11F70042FA22 /* dictionary.txt */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		FA2C36E814DB5E6D00D07ECD /* BSBoardView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BSBoardView.h; sourceTree = "<group>"; };
 		FA2C36E914DB5E6D00D07ECD /* BSBoardView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BSBoardView.m; sourceTree = "<group>"; };
+		FA2C36EE14DB6EA900D07ECD /* BSBoard.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = BSBoard.c; sourceTree = "<group>"; };
+		FA2C36EF14DB6EA900D07ECD /* BSBoard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BSBoard.h; sourceTree = "<group>"; };
+		FA2C36F014DB6EA900D07ECD /* BSDictionary.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = BSDictionary.c; sourceTree = "<group>"; };
+		FA2C36F114DB6EA900D07ECD /* BSDictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BSDictionary.h; sourceTree = "<group>"; };
+		FA2C36F214DB6EA900D07ECD /* BSSolver.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = BSSolver.c; sourceTree = "<group>"; };
+		FA2C36F314DB6EA900D07ECD /* BSSolver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BSSolver.h; sourceTree = "<group>"; };
+		FA2C36F514DB6EA900D07ECD /* BSBoardObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BSBoardObject.h; sourceTree = "<group>"; };
+		FA2C36F614DB6EA900D07ECD /* BSBoardObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BSBoardObject.m; sourceTree = "<group>"; };
+		FA2C36F714DB6EA900D07ECD /* BSDictionaryObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BSDictionaryObject.h; sourceTree = "<group>"; };
+		FA2C36F814DB6EA900D07ECD /* BSDictionaryObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BSDictionaryObject.m; sourceTree = "<group>"; };
+		FA2C36F914DB6EA900D07ECD /* BSSolutionObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BSSolutionObject.h; sourceTree = "<group>"; };
+		FA2C36FA14DB6EA900D07ECD /* BSSolutionObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BSSolutionObject.m; sourceTree = "<group>"; };
 		FADC72BD14D9E4550042FA22 /* BoggleSolver.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BoggleSolver.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FADC72C114D9E4550042FA22 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		FADC72C314D9E4550042FA22 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -53,8 +65,6 @@
 		FADC72D314D9E4550042FA22 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		FADC72D414D9E4550042FA22 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		FADC72D714D9E4550042FA22 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/ViewController.xib; sourceTree = "<group>"; };
-		FADC72DF14D9E5F10042FA22 /* BSBoard.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = BSBoard.c; sourceTree = "<group>"; };
-		FADC72E114D9E5F90042FA22 /* BSBoard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BSBoard.h; sourceTree = "<group>"; };
 		FADC72E714D9EAD20042FA22 /* BSTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BSTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FADC72E814D9EAD20042FA22 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		FADC72EA14D9EAD20042FA22 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = Library/Frameworks/Cocoa.framework; sourceTree = DEVELOPER_DIR; };
@@ -66,20 +76,10 @@
 		FADC72F914D9EAD20042FA22 /* BSTests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "BSTests-Prefix.pch"; sourceTree = "<group>"; };
 		FADC72FE14D9EB030042FA22 /* BSBoardTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BSBoardTest.h; sourceTree = "<group>"; };
 		FADC72FF14D9EB030042FA22 /* BSBoardTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BSBoardTest.m; sourceTree = "<group>"; };
-		FADC730114D9EF7A0042FA22 /* BSDictionary.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = BSDictionary.c; sourceTree = "<group>"; };
-		FADC730314D9EF820042FA22 /* BSDictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BSDictionary.h; sourceTree = "<group>"; };
 		FADC730514D9F4140042FA22 /* BSDictionaryTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BSDictionaryTest.h; sourceTree = "<group>"; };
 		FADC730614D9F4140042FA22 /* BSDictionaryTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BSDictionaryTest.m; sourceTree = "<group>"; };
-		FADC730B14D9F8140042FA22 /* BSSolver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BSSolver.h; sourceTree = "<group>"; };
-		FADC730C14D9F8140042FA22 /* BSSolver.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = BSSolver.c; sourceTree = "<group>"; };
 		FADC730F14DA01840042FA22 /* BSSolverTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BSSolverTest.h; sourceTree = "<group>"; };
 		FADC731014DA01840042FA22 /* BSSolverTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BSSolverTest.m; sourceTree = "<group>"; };
-		FADC731414DA0BBE0042FA22 /* BSBoardObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BSBoardObject.h; sourceTree = "<group>"; };
-		FADC731514DA0BBE0042FA22 /* BSBoardObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BSBoardObject.m; sourceTree = "<group>"; };
-		FADC731814DA0BD60042FA22 /* BSDictionaryObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BSDictionaryObject.h; sourceTree = "<group>"; };
-		FADC731914DA0BD60042FA22 /* BSDictionaryObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BSDictionaryObject.m; sourceTree = "<group>"; };
-		FADC731C14DA0FEE0042FA22 /* BSSolutionObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BSSolutionObject.h; sourceTree = "<group>"; };
-		FADC731D14DA0FEE0042FA22 /* BSSolutionObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BSSolutionObject.m; sourceTree = "<group>"; };
 		FADC732014DA11F70042FA22 /* dictionary.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = dictionary.txt; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -106,10 +106,45 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		FA2C36EC14DB6EA900D07ECD /* Boggle API */ = {
+			isa = PBXGroup;
+			children = (
+				FA2C36ED14DB6EA900D07ECD /* C */,
+				FA2C36F414DB6EA900D07ECD /* Objective-C */,
+			);
+			path = "Boggle API";
+			sourceTree = "<group>";
+		};
+		FA2C36ED14DB6EA900D07ECD /* C */ = {
+			isa = PBXGroup;
+			children = (
+				FA2C36EF14DB6EA900D07ECD /* BSBoard.h */,
+				FA2C36EE14DB6EA900D07ECD /* BSBoard.c */,
+				FA2C36F114DB6EA900D07ECD /* BSDictionary.h */,
+				FA2C36F014DB6EA900D07ECD /* BSDictionary.c */,
+				FA2C36F314DB6EA900D07ECD /* BSSolver.h */,
+				FA2C36F214DB6EA900D07ECD /* BSSolver.c */,
+			);
+			path = C;
+			sourceTree = "<group>";
+		};
+		FA2C36F414DB6EA900D07ECD /* Objective-C */ = {
+			isa = PBXGroup;
+			children = (
+				FA2C36F514DB6EA900D07ECD /* BSBoardObject.h */,
+				FA2C36F614DB6EA900D07ECD /* BSBoardObject.m */,
+				FA2C36F714DB6EA900D07ECD /* BSDictionaryObject.h */,
+				FA2C36F814DB6EA900D07ECD /* BSDictionaryObject.m */,
+				FA2C36F914DB6EA900D07ECD /* BSSolutionObject.h */,
+				FA2C36FA14DB6EA900D07ECD /* BSSolutionObject.m */,
+			);
+			path = "Objective-C";
+			sourceTree = "<group>";
+		};
 		FADC72B214D9E4550042FA22 = {
 			isa = PBXGroup;
 			children = (
-				FADC72DE14D9E4600042FA22 /* Boggle API */,
+				FA2C36EC14DB6EA900D07ECD /* Boggle API */,
 				FADC72C714D9E4550042FA22 /* BoggleSolver */,
 				FADC72F014D9EAD20042FA22 /* BSTests */,
 				FADC72C014D9E4550042FA22 /* Frameworks */,
@@ -166,15 +201,6 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		FADC72DE14D9E4600042FA22 /* Boggle API */ = {
-			isa = PBXGroup;
-			children = (
-				FADC731214DA0B7D0042FA22 /* C */,
-				FADC731314DA0B880042FA22 /* Objective-C */,
-			);
-			name = "Boggle API";
-			sourceTree = "<group>";
-		};
 		FADC72EC14D9EAD20042FA22 /* Other Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -207,32 +233,6 @@
 				FADC72F914D9EAD20042FA22 /* BSTests-Prefix.pch */,
 			);
 			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		FADC731214DA0B7D0042FA22 /* C */ = {
-			isa = PBXGroup;
-			children = (
-				FADC72E114D9E5F90042FA22 /* BSBoard.h */,
-				FADC72DF14D9E5F10042FA22 /* BSBoard.c */,
-				FADC730314D9EF820042FA22 /* BSDictionary.h */,
-				FADC730114D9EF7A0042FA22 /* BSDictionary.c */,
-				FADC730B14D9F8140042FA22 /* BSSolver.h */,
-				FADC730C14D9F8140042FA22 /* BSSolver.c */,
-			);
-			name = C;
-			sourceTree = "<group>";
-		};
-		FADC731314DA0B880042FA22 /* Objective-C */ = {
-			isa = PBXGroup;
-			children = (
-				FADC731414DA0BBE0042FA22 /* BSBoardObject.h */,
-				FADC731514DA0BBE0042FA22 /* BSBoardObject.m */,
-				FADC731814DA0BD60042FA22 /* BSDictionaryObject.h */,
-				FADC731914DA0BD60042FA22 /* BSDictionaryObject.m */,
-				FADC731C14DA0FEE0042FA22 /* BSSolutionObject.h */,
-				FADC731D14DA0FEE0042FA22 /* BSSolutionObject.m */,
-			);
-			name = "Objective-C";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -341,16 +341,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FADC730414D9F2620042FA22 /* BSDictionary.c in Sources */,
 				FADC72CE14D9E4550042FA22 /* main.m in Sources */,
 				FADC72D214D9E4550042FA22 /* AppDelegate.m in Sources */,
 				FADC72D514D9E4550042FA22 /* ViewController.m in Sources */,
-				FADC72E014D9E5F10042FA22 /* BSBoard.c in Sources */,
-				FADC730D14D9F8140042FA22 /* BSSolver.c in Sources */,
-				FADC731614DA0BBE0042FA22 /* BSBoardObject.m in Sources */,
-				FADC731A14DA0BD60042FA22 /* BSDictionaryObject.m in Sources */,
-				FADC731E14DA0FEE0042FA22 /* BSSolutionObject.m in Sources */,
 				FA2C36EA14DB5E6D00D07ECD /* BSBoardView.m in Sources */,
+				FA2C36FB14DB6EA900D07ECD /* BSBoard.c in Sources */,
+				FA2C36FD14DB6EA900D07ECD /* BSDictionary.c in Sources */,
+				FA2C36FF14DB6EA900D07ECD /* BSSolver.c in Sources */,
+				FA2C370114DB6EA900D07ECD /* BSBoardObject.m in Sources */,
+				FA2C370314DB6EA900D07ECD /* BSDictionaryObject.m in Sources */,
+				FA2C370514DB6EA900D07ECD /* BSSolutionObject.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -358,15 +358,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FADC72FD14D9EAF10042FA22 /* BSBoard.c in Sources */,
 				FADC730014D9EB030042FA22 /* BSBoardTest.m in Sources */,
-				FADC730214D9EF7A0042FA22 /* BSDictionary.c in Sources */,
 				FADC730714D9F4140042FA22 /* BSDictionaryTest.m in Sources */,
-				FADC730E14D9F8140042FA22 /* BSSolver.c in Sources */,
 				FADC731114DA01840042FA22 /* BSSolverTest.m in Sources */,
-				FADC731714DA0BBE0042FA22 /* BSBoardObject.m in Sources */,
-				FADC731B14DA0BD60042FA22 /* BSDictionaryObject.m in Sources */,
-				FADC731F14DA0FEE0042FA22 /* BSSolutionObject.m in Sources */,
+				FA2C36FC14DB6EA900D07ECD /* BSBoard.c in Sources */,
+				FA2C36FE14DB6EA900D07ECD /* BSDictionary.c in Sources */,
+				FA2C370014DB6EA900D07ECD /* BSSolver.c in Sources */,
+				FA2C370214DB6EA900D07ECD /* BSBoardObject.m in Sources */,
+				FA2C370414DB6EA900D07ECD /* BSDictionaryObject.m in Sources */,
+				FA2C370614DB6EA900D07ECD /* BSSolutionObject.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
