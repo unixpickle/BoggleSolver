@@ -10,7 +10,9 @@
 
 @interface ViewController (UIConfiguration)
 
+- (CGRect)boardViewFrame;
 - (void)setupTitleBar;
+- (void)setupSolutionsTable;
 
 @end
 
@@ -31,13 +33,14 @@
     // BSDictionaryObject * dictionary = [[BSDictionaryObject alloc] initWithFile:filePath];
     
     [self setupTitleBar];
+    [self setupSolutionsTable];
     
     NSArray * pieces = [NSArray arrayWithObjects:@"e", @"x", @"a", @"m",
                                                  @"h", @"e", @"l", @"p",
                                                  @"e", @"a", @"d", @"s",
                                                  @"e", @"r", @"e", @"h", nil];
     BSBoardObject * board = [[BSBoardObject alloc] initWithPieces:pieces width:4 height:4];
-    boardView = [[BSBoardView alloc] initWithFrame:CGRectMake(4, 48, 312, 312) board:board];
+    boardView = [[BSBoardView alloc] initWithFrame:[self boardViewFrame] board:board];
     [boardView setDelegate:self];
     [self.view addSubview:boardView];
     
@@ -45,6 +48,10 @@
                                                  name:UIKeyboardWillShowNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHide:)
                                                  name:UIKeyboardWillHideNotification object:nil];
+}
+
+- (CGRect)boardViewFrame {
+    return CGRectMake(30, 54, self.view.frame.size.width - 60, self.view.frame.size.width - 60);
 }
 
 - (void)setupTitleBar {
@@ -65,6 +72,15 @@
     [self.view addSubview:titleBar];
 }
 
+- (void)setupSolutionsTable {
+    CGFloat yValue = CGRectGetMaxY([self boardViewFrame]) + 10;
+    
+    solutionTable = [[UITableView alloc] initWithFrame:CGRectMake(10, yValue, 300, self.view.frame.size.height - yValue - 10) style:UITableViewStylePlain];
+    [[solutionTable layer] setCornerRadius:5];
+    [solutionTable setDataSource:self];
+    [self.view addSubview:solutionTable];
+}
+
 #pragma mark - Events -
 
 - (void)editButton:(id)sender {
@@ -79,8 +95,8 @@
     // solve the thingy
     NSString * filePath = [[NSBundle mainBundle] pathForResource:@"dictionary" ofType:@"txt"];
     BSDictionaryObject * dictionary = [[BSDictionaryObject alloc] initWithFile:filePath];
-    NSArray * solutions = [[boardView board] solutionsForDictionary:dictionary];
-    NSLog(@"Solutions: %@", solutions);
+    solutions = [[boardView board] solutionsForDictionary:dictionary];
+    [solutionTable reloadData];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
@@ -135,7 +151,7 @@
 
 - (void)keyboardWillHide:(NSNotification *)notification {
     NSNumber * duration = [[notification userInfo] objectForKey:UIKeyboardAnimationDurationUserInfoKey];
-    [boardView animateToFrame:CGRectMake(4, 48, 312, 312) duration:[duration doubleValue]];
+    [boardView animateToFrame:[self boardViewFrame] duration:[duration doubleValue]];
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
@@ -149,6 +165,26 @@
         [boardView setLetterAtEditingIndex:letter];
     }
     return NO;
+}
+
+#pragma mark - Solutions -
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    return 1;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return [solutions count];
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    BSSolutionObject * solution = [solutions objectAtIndex:indexPath.row];
+    UITableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"SolutionCell"];
+    if (!cell) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"SolutionCell"];
+    }
+    cell.textLabel.text = [solution word];
+    return cell;
 }
 
 @end

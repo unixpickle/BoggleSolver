@@ -22,6 +22,7 @@
 		FA2C370614DB6EA900D07ECD /* BSSolutionObject.m in Sources */ = {isa = PBXBuildFile; fileRef = FA2C36FA14DB6EA900D07ECD /* BSSolutionObject.m */; };
 		FA2C370A14DB72C000D07ECD /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA2C370914DB72C000D07ECD /* Foundation.framework */; };
 		FA2C370E14DB72DE00D07ECD /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA2C370D14DB72DE00D07ECD /* QuartzCore.framework */; };
+		FA8AB07B14DC83590098BAA2 /* BSLoadingPane.m in Sources */ = {isa = PBXBuildFile; fileRef = FA8AB07A14DC83590098BAA2 /* BSLoadingPane.m */; };
 		FADC72C214D9E4550042FA22 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FADC72C114D9E4550042FA22 /* UIKit.framework */; };
 		FADC72C414D9E4550042FA22 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FADC72C314D9E4550042FA22 /* Foundation.framework */; };
 		FADC72C614D9E4550042FA22 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FADC72C514D9E4550042FA22 /* CoreGraphics.framework */; };
@@ -55,6 +56,8 @@
 		FA2C36FA14DB6EA900D07ECD /* BSSolutionObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BSSolutionObject.m; sourceTree = "<group>"; };
 		FA2C370914DB72C000D07ECD /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = SDKs/MacOSX10.7.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		FA2C370D14DB72DE00D07ECD /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		FA8AB07914DC83590098BAA2 /* BSLoadingPane.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BSLoadingPane.h; sourceTree = "<group>"; };
+		FA8AB07A14DC83590098BAA2 /* BSLoadingPane.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BSLoadingPane.m; sourceTree = "<group>"; };
 		FADC72BD14D9E4550042FA22 /* BoggleSolver.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BoggleSolver.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FADC72C114D9E4550042FA22 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		FADC72C314D9E4550042FA22 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -145,6 +148,15 @@
 			path = "Objective-C";
 			sourceTree = "<group>";
 		};
+		FA8AB07714DC83460098BAA2 /* Loading UI */ = {
+			isa = PBXGroup;
+			children = (
+				FA8AB07914DC83590098BAA2 /* BSLoadingPane.h */,
+				FA8AB07A14DC83590098BAA2 /* BSLoadingPane.m */,
+			);
+			path = "Loading UI";
+			sourceTree = "<group>";
+		};
 		FADC72B214D9E4550042FA22 = {
 			isa = PBXGroup;
 			children = (
@@ -183,6 +195,7 @@
 		FADC72C714D9E4550042FA22 /* BoggleSolver */ = {
 			isa = PBXGroup;
 			children = (
+				FA8AB07714DC83460098BAA2 /* Loading UI */,
 				FADC72D014D9E4550042FA22 /* AppDelegate.h */,
 				FADC72D114D9E4550042FA22 /* AppDelegate.m */,
 				FADC72D314D9E4550042FA22 /* ViewController.h */,
@@ -357,6 +370,7 @@
 				FA2C370114DB6EA900D07ECD /* BSBoardObject.m in Sources */,
 				FA2C370314DB6EA900D07ECD /* BSDictionaryObject.m in Sources */,
 				FA2C370514DB6EA900D07ECD /* BSSolutionObject.m in Sources */,
+				FA8AB07B14DC83590098BAA2 /* BSLoadingPane.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

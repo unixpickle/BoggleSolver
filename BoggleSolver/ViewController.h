@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "BSBoardView.h"
 
-@interface ViewController : UIViewController <BSBoardViewDelegate, UITextFieldDelegate> {
+@interface ViewController : UIViewController <BSBoardViewDelegate, UITextFieldDelegate, UITableViewDataSource> {
     BSBoardView * boardView;
     
     UINavigationBar * titleBar;
@@ -18,6 +18,9 @@
     UIBarButtonItem * solveButton;
     
     UITextField * editingEntry;
+    
+    UITableView * solutionTable;
+    NSArray * solutions;
 }
 
 - (void)editButton:(id)sender;
