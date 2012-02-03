@@ -142,6 +142,7 @@
         editingEntry = [[UITextField alloc] initWithFrame:CGRectMake(0, -20, 1, 1)];
         [editingEntry setKeyboardType:UIKeyboardTypeAlphabet];
         [editingEntry setDelegate:self];
+        [editingEntry setAutocapitalizationType:UITextAutocapitalizationTypeNone];
     }
     [self.view addSubview:editingEntry];
     [editingEntry becomeFirstResponder];
@@ -164,9 +165,8 @@
     CGRect frame;
     [[[notification userInfo] objectForKey:UIKeyboardFrameEndUserInfoKey] getValue:&frame];
     NSNumber * duration = [[notification userInfo] objectForKey:UIKeyboardAnimationDurationUserInfoKey];
-    // calculate the frame of the board
-    CGRect usableRect = CGRectMake(0, 44, self.view.frame.size.width,
-                                   self.view.frame.size.height - 44 - frame.size.height);
+    
+    CGRect usableRect = CGRectMake(0, 44, self.view.frame.size.width, self.view.frame.size.height - 44 - frame.size.height);
     CGFloat scaledSize = usableRect.size.height - 20;
     [boardView animateToFrame:CGRectMake(usableRect.size.width / 2 - scaledSize / 2,
                                          usableRect.origin.y + 10, scaledSize, scaledSize)
