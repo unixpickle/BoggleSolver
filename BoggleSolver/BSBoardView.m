@@ -17,13 +17,14 @@
 @implementation BSBoardView
 
 @synthesize board;
+@synthesize delegate;
 
 @synthesize boardState;
 @synthesize solution;
 @synthesize editingCell;
 
 - (id)initWithFrame:(CGRect)frame board:(BSBoardObject *)aBoard {
-    if ((self = [super init])) {
+    if ((self = [super initWithFrame:frame])) {
         board = aBoard;
         boardState = BSBoardViewStateDefault;
     }
@@ -36,6 +37,13 @@
     }];
 }
 
+- (void)setLetterAtEditingIndex:(char)aLetter {
+    NSUInteger x = editingCell % [board width];
+    NSUInteger y = editingCell / [board width];
+    [board setLetter:aLetter atX:x y:y];
+    [self setNeedsDisplay];
+}
+
 #pragma mark - Drawing -
 
 - (void)drawRect:(CGRect)rect {
@@ -43,9 +51,9 @@
     CGRect inner = CGRectMake(4, 4, bounds.size.width - 8, bounds.size.height - 8);
     
     CGContextRef context = UIGraphicsGetCurrentContext();
-    CGContextSetRGBFillColor(context, 0, 0, 0, 1);
+    CGContextSetRGBFillColor(context, 166.0 / 255.0, 72.0 / 255.0, 0, 1);
     CGContextFillRect(context, bounds);
-    CGContextSetRGBFillColor(context, 1, 1, 1, 1);
+    CGContextSetRGBFillColor(context, 1.0, 208.0 / 255.0, 115.0 / 255.0, 1);
     CGContextFillRect(context, inner);
     
     CGFloat cellWidth = inner.size.width / (CGFloat)[board width];
@@ -70,6 +78,7 @@
             CGRect labelFrame = CGRectMake(cellFrame.size.width / 2 - labelSize.width / 2 + cellFrame.origin.x,
                                            cellFrame.size.height / 2 - labelSize.height / 2 + cellFrame.origin.y,
                                            labelSize.width, labelSize.height);
+            CGContextSetRGBFillColor(context, 0, 0, 0, 1);
             [labelString drawInRect:labelFrame withFont:labelFont];
         }
     }
@@ -90,7 +99,7 @@
             NSUInteger xcoord = editingCell % [board width];
             NSUInteger ycoord = editingCell / [board width];
             if (x == xcoord && y == ycoord) {
-                return [[UIColor colorWithRed:0.3 green:0.35 blue:0.98 alpha:1] CGColor];
+                return [[UIColor colorWithRed:1 green:(191.0 / 255.0) blue:0 alpha:1] CGColor];
             }
             break;
         }
@@ -98,6 +107,25 @@
             break;
     }
     return nil;
+}
+
+#pragma mark - Editing -
+
+- (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
+    CGPoint location = [[touches anyObject] locationInView:self];
+    NSUInteger x = floor(location.x / (self.frame.size.width / (CGFloat)[board width]));
+    NSUInteger y = floor(location.y / (self.frame.size.height / (CGFloat)[board height]));
+    
+    if (boardState == BSBoardViewStateDefault) {
+        if ([delegate boardViewShouldStartEditing:self]) {
+            [self setBoardState:BSBoardViewStateEditing];
+            editingCell = y * [board width] + x;
+            [self setNeedsDisplay];
+        }
+    } else if (boardState == BSBoardViewStateEditing) {
+        editingCell = y * [board width] + x;
+        [self setNeedsDisplay];
+    }
 }
 
 @end

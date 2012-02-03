@@ -8,15 +8,20 @@
 
 #import "ViewController.h"
 
+@interface ViewController (UIConfiguration)
+
+- (void)setupTitleBar;
+
+@end
+
 @implementation ViewController
 
-- (void)didReceiveMemoryWarning
-{
+- (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Release any cached data, images, etc that aren't in use.
 }
 
-#pragma mark - View lifecycle
+#pragma mark - View Configuration -
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -25,46 +30,100 @@
     // NSString * filePath = [[NSBundle mainBundle] pathForResource:@"dictionary" ofType:@"txt"];
     // BSDictionaryObject * dictionary = [[BSDictionaryObject alloc] initWithFile:filePath];
     
+    [self setupTitleBar];
+    
     NSArray * pieces = [NSArray arrayWithObjects:@"e", @"x", @"a", @"m",
                                                  @"h", @"e", @"l", @"p",
                                                  @"e", @"a", @"d", @"s",
-                                                 @"s", @"c", @"a", @"m", nil];
+                                                 @"e", @"r", @"e", @"h", nil];
     BSBoardObject * board = [[BSBoardObject alloc] initWithPieces:pieces width:4 height:4];
-    boardView = [[BSBoardView alloc] initWithFrame:CGRectMake(0, 0, 320, 320) board:board];
+    boardView = [[BSBoardView alloc] initWithFrame:CGRectMake(4, 48, 312, 312) board:board];
+    [boardView setDelegate:self];
     [self.view addSubview:boardView];
 }
 
-- (void)viewDidUnload
-{
-    [super viewDidUnload];
-    // Release any retained subviews of the main view.
-    // e.g. self.myOutlet = nil;
+- (void)setupTitleBar {
+    navItem = [[UINavigationItem alloc] initWithTitle:@"BoggleSolve"];
+    
+    editButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemEdit
+                                                               target:self action:@selector(editButton:)];
+    doneButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone
+                                                               target:self action:@selector(doneButton:)];
+    solveButton = [[UIBarButtonItem alloc] initWithTitle:@"Solve" style:UIBarButtonItemStylePlain
+                                                  target:self action:@selector(solveButton:)];
+    [navItem setLeftBarButtonItem:solveButton];
+    [navItem setRightBarButtonItem:editButton];
+    
+    titleBar = [[UINavigationBar alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 44)];
+    [titleBar pushNavigationItem:navItem animated:NO];
+    
+    [self.view addSubview:titleBar];
 }
 
-- (void)viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:animated];
+#pragma mark - Events -
+
+- (void)editButton:(id)sender {
+    [self beginEditUI];
 }
 
-- (void)viewDidAppear:(BOOL)animated
-{
-    [super viewDidAppear:animated];
+- (void)doneButton:(id)sender {
+    [self endEditUI];
 }
 
-- (void)viewWillDisappear:(BOOL)animated
-{
-	[super viewWillDisappear:animated];
+- (void)solveButton:(id)sender {
+    
 }
 
-- (void)viewDidDisappear:(BOOL)animated
-{
-	[super viewDidDisappear:animated];
-}
-
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
-{
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
     // Return YES for supported orientations
     return (interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);
+}
+
+#pragma mark - Board -
+
+- (BOOL)boardViewShouldStartEditing:(BSBoardView *)boardView {
+    [self beginEditUI];
+    return YES;
+}
+
+#pragma mark - Editing -
+
+- (void)beginEditUI {
+    if (!editingEntry) {
+        editingEntry = [[UITextField alloc] initWithFrame:CGRectMake(0, -20, 1, 1)];
+        [editingEntry setKeyboardType:UIKeyboardTypeAlphabet];
+        [editingEntry setDelegate:self];
+    }
+    [self.view addSubview:editingEntry];
+    [editingEntry becomeFirstResponder];
+    [boardView setBoardState:BSBoardViewStateEditing];
+    [boardView setEditingCell:0];
+    [boardView setNeedsDisplay];
+    [navItem setRightBarButtonItem:doneButton animated:YES];
+    // TODO: resize the board
+}
+
+- (void)endEditUI {
+    [editingEntry resignFirstResponder];
+    [editingEntry removeFromSuperview];
+    [editingEntry setText:@""];
+    [boardView setBoardState:BSBoardViewStateDefault];
+    [boardView setNeedsDisplay];
+    [navItem setRightBarButtonItem:editButton animated:YES];
+    // TODO: resize the board
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    [self endEditUI];
+    return NO;
+}
+
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
+    if ([string length] == 1) {
+        unichar letter = tolower([string characterAtIndex:0]);
+        [boardView setLetterAtEditingIndex:letter];
+    }
+    return NO;
 }
 
 @end

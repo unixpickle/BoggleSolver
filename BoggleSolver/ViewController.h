@@ -9,8 +9,22 @@
 #import <UIKit/UIKit.h>
 #import "BSBoardView.h"
 
-@interface ViewController : UIViewController {
+@interface ViewController : UIViewController <BSBoardViewDelegate, UITextFieldDelegate> {
     BSBoardView * boardView;
+    
+    UINavigationBar * titleBar;
+    UINavigationItem * navItem;
+    UIBarButtonItem * editButton, * doneButton;
+    UIBarButtonItem * solveButton;
+    
+    UITextField * editingEntry;
 }
+
+- (void)editButton:(id)sender;
+- (void)doneButton:(id)sender;
+- (void)solveButton:(id)sender;
+
+- (void)beginEditUI;
+- (void)endEditUI;
 
 @end
