@@ -25,5 +25,8 @@
 - (void)setLetter:(char)letter atX:(NSUInteger)x y:(NSUInteger)y;
 
 - (NSArray *)solutionsForDictionary:(BSDictionaryObject *)dictionary;
+- (NSArray *)solutionsForDictionary:(BSDictionaryObject *)dictionary
+                    allowDuplicates:(BOOL)flag
+                      minimumLength:(size_t)len;
 
 @end

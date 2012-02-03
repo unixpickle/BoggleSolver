@@ -59,12 +59,31 @@
 #pragma mark - Solving -
 
 - (NSArray *)solutionsForDictionary:(BSDictionaryObject *)dictionary {
+    return [self solutionsForDictionary:dictionary allowDuplicates:NO minimumLength:3];
+}
+
+- (NSArray *)solutionsForDictionary:(BSDictionaryObject *)dictionary
+                    allowDuplicates:(BOOL)flag 
+                      minimumLength:(size_t)len {
     BSSolutionPoolRef pool = bs_board_solve(board, [dictionary dictionaryRef]);
     NSMutableArray * solutionArray = [NSMutableArray array];
     for (int i = 0; i < pool->count; i++) {
         BSSolutionRef solutionRef = pool->solutions[i];
         BSSolutionObject * solution = [[BSSolutionObject alloc] initWithSolutionRef:solutionRef];
-        [solutionArray addObject:solution];
+        
+        BOOL shouldAdd = YES;
+        if ([[solution word] length] < len && len > 0) {
+            shouldAdd = NO;
+        }
+        if (!flag && shouldAdd) {
+            for (BSSolutionObject * existing in solutionArray) {
+                if ([[existing word] isEqualToString:[solution word]]) {
+                    shouldAdd = NO;
+                    break;
+                }
+            }
+        }
+        if (shouldAdd) [solutionArray addObject:solution];
     }
     bs_solution_pool_free(pool, 0);
     return [NSArray arrayWithArray:solutionArray];
