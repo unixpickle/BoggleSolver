@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "BSBoardView.h"
 
-@interface ViewController : UIViewController
+@interface ViewController : UIViewController {
+    BSBoardView * boardView;
+}
 
 @end

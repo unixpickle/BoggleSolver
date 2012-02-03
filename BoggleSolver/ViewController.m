@@ -18,10 +18,20 @@
 
 #pragma mark - View lifecycle
 
-- (void)viewDidLoad
-{
+- (void)viewDidLoad {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+    
+    // NSString * filePath = [[NSBundle mainBundle] pathForResource:@"dictionary" ofType:@"txt"];
+    // BSDictionaryObject * dictionary = [[BSDictionaryObject alloc] initWithFile:filePath];
+    
+    NSArray * pieces = [NSArray arrayWithObjects:@"e", @"x", @"a", @"m",
+                                                 @"h", @"e", @"l", @"p",
+                                                 @"e", @"a", @"d", @"s",
+                                                 @"s", @"c", @"a", @"m", nil];
+    BSBoardObject * board = [[BSBoardObject alloc] initWithPieces:pieces width:4 height:4];
+    boardView = [[BSBoardView alloc] initWithFrame:CGRectMake(0, 0, 320, 320) board:board];
+    [self.view addSubview:boardView];
 }
 
 - (void)viewDidUnload
