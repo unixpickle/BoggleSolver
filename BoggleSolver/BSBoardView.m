@@ -85,6 +85,9 @@
             
             char letter = [board letterAtX:x y:y];
             NSString * labelString = [NSString stringWithFormat:@"%c", toupper(letter)];
+            if (letter == 'q') {
+                labelString = @"Qu";
+            }
             UIFont * labelFont = [UIFont boldSystemFontOfSize:18];
             CGSize labelSize = [labelString sizeWithFont:labelFont];
             CGRect labelFrame = CGRectMake(cellFrame.size.width / 2 - labelSize.width / 2 + cellFrame.origin.x,
@@ -103,7 +106,7 @@
         case BSBoardViewStateAnswer:
             if (!solution) break;
             if ([solution includesX:x andY:y]) {
-                return [[UIColor colorWithRed:0.9 green:0.9 blue:0 alpha:1] CGColor];
+                return [[UIColor colorWithRed:1 green:(191.0 / 255.0) blue:0 alpha:1] CGColor];
             }
             break;
         case BSBoardViewStateEditing:
@@ -128,7 +131,7 @@
     NSUInteger x = floor(location.x / (self.frame.size.width / (CGFloat)[board width]));
     NSUInteger y = floor(location.y / (self.frame.size.height / (CGFloat)[board height]));
     
-    if (boardState == BSBoardViewStateDefault) {
+    if (boardState == BSBoardViewStateDefault || boardState == BSBoardViewStateAnswer) {
         if ([delegate boardViewShouldStartEditing:self]) {
             [self setBoardState:BSBoardViewStateEditing];
             editingCell = y * [board width] + x;

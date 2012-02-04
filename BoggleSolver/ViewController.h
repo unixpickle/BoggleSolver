@@ -10,7 +10,7 @@
 #import "BSBoardView.h"
 #import "BSLoadingController.h"
 
-@interface ViewController : UIViewController <BSBoardViewDelegate, UITextFieldDelegate, UITableViewDataSource> {
+@interface ViewController : UIViewController <BSBoardViewDelegate, UITextFieldDelegate, UITableViewDataSource, UITableViewDelegate> {
     BSBoardView * boardView;
     
     UINavigationBar * titleBar;

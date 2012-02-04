@@ -42,9 +42,18 @@ void bs_solution_append(BSSolutionRef solution, BSSolutionTerm term) {
 
 const char * bs_solution_get_word(BSSolutionRef solution) {
     static char buffer[32];
-    for (int i = 0; i < solution->count && i < 31; i++) {
-        buffer[i] = solution->terms[i].letter;
-        buffer[i + 1] = 0;
+    int j = 0;
+    for (int i = 0; j < 31 && i < solution->count; i++, j++) {
+        buffer[j] = solution->terms[i].letter;
+        if (solution->terms[j].letter == 'q') {
+            if (j == 30) {
+                buffer[++j] = 0;
+                break;
+            } else {
+                buffer[++j] = 'u';
+            }
+        }
+        buffer[j + 1] = 0;
     }
     return buffer;
 }

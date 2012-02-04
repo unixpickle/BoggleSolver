@@ -90,6 +90,7 @@
     solutionTable = [[UITableView alloc] initWithFrame:CGRectMake(10, yValue, 300, self.view.frame.size.height - yValue - 10) style:UITableViewStylePlain];
     [[solutionTable layer] setCornerRadius:5];
     [solutionTable setDataSource:self];
+    [solutionTable setDelegate:self];
     [self.view addSubview:solutionTable];
 }
 
@@ -138,6 +139,7 @@
 #pragma mark - Editing -
 
 - (void)beginEditUI {
+    [solutionTable deselectRowAtIndexPath:[solutionTable indexPathForSelectedRow] animated:YES];
     if (!editingEntry) {
         editingEntry = [[UITextField alloc] initWithFrame:CGRectMake(0, -20, 1, 1)];
         [editingEntry setKeyboardType:UIKeyboardTypeAlphabet];
@@ -188,6 +190,9 @@
         unichar letter = tolower([string characterAtIndex:0]);
         if (letter < 'a' || letter > 'z') return NO;
         [boardView setLetterAtEditingIndex:letter];
+        [boardView setSolution:nil];
+        solutions = nil;
+        [solutionTable reloadData];
     }
     return NO;
 }
@@ -210,6 +215,13 @@
     }
     cell.textLabel.text = [solution word];
     return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    BSSolutionObject * solution = [solutions objectAtIndex:indexPath.row];
+    [boardView setSolution:solution];
+    [boardView setBoardState:BSBoardViewStateAnswer];
+    [boardView setNeedsDisplay];
 }
 
 @end
