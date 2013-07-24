@@ -10,7 +10,7 @@
 
 @interface BSBoardView (Drawing)
 
-- (CGColorRef)backgroundForCellAtX:(NSUInteger)x y:(NSUInteger)y;
+- (UIColor *)backgroundForCellAtX:(NSUInteger)x y:(NSUInteger)y;
 
 @end
 
@@ -77,7 +77,8 @@
                                           4 + cellHeight * (CGFloat)y,
                                           cellWidth, cellHeight);
             
-            CGColorRef bgColor = [self backgroundForCellAtX:x y:y];
+            UIColor * _bgColor = [self backgroundForCellAtX:x y:y];
+            CGColorRef bgColor = _bgColor.CGColor;
             if (bgColor) {
                 CGContextSetFillColorWithColor(context, bgColor);
                 CGContextFillRect(context, cellFrame);
@@ -99,14 +100,14 @@
     }
 }
 
-- (CGColorRef)backgroundForCellAtX:(NSUInteger)x y:(NSUInteger)y {
+- (UIColor *)backgroundForCellAtX:(NSUInteger)x y:(NSUInteger)y {
     switch (boardState) {
         case BSBoardViewStateDefault:
             break;
         case BSBoardViewStateAnswer:
             if (!solution) break;
             if ([solution includesX:x andY:y]) {
-                return [[UIColor colorWithRed:1 green:(191.0 / 255.0) blue:0 alpha:1] CGColor];
+                return [UIColor colorWithRed:1 green:(191.0 / 255.0) blue:0 alpha:1];
             }
             break;
         case BSBoardViewStateEditing:
@@ -114,7 +115,7 @@
             NSUInteger xcoord = editingCell % [board width];
             NSUInteger ycoord = editingCell / [board width];
             if (x == xcoord && y == ycoord) {
-                return [[UIColor colorWithRed:1 green:(191.0 / 255.0) blue:0 alpha:1] CGColor];
+                return [UIColor colorWithRed:1 green:(191.0 / 255.0) blue:0 alpha:1];
             }
             break;
         }

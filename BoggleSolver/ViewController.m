@@ -11,6 +11,7 @@
 @interface ViewController (UIConfiguration)
 
 - (CGRect)boardViewFrame;
+- (CGRect)solutionTableFrame;
 - (void)setupTitleBar;
 - (void)setupSolutionsTable;
 
@@ -39,6 +40,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.view.backgroundColor = [UIColor colorWithRed:1 green:0.97 blue:0.89 alpha:1];
 	// Do any additional setup after loading the view, typically from a nib.
     
     // NSString * filePath = [[NSBundle mainBundle] pathForResource:@"dictionary" ofType:@"txt"];
@@ -66,6 +68,12 @@
     return CGRectMake(40, 54, self.view.frame.size.width - 80, self.view.frame.size.width - 80);
 }
 
+- (CGRect)solutionTableFrame {
+    CGFloat yValue = CGRectGetMaxY([self boardViewFrame]) + 10;
+    CGFloat totalHeight = [[UIScreen mainScreen] applicationFrame].size.height;
+    return CGRectMake(10, yValue, 300, totalHeight - yValue - 10);
+}
+
 - (void)setupTitleBar {
     navItem = [[UINavigationItem alloc] initWithTitle:@"BoggleSolve"];
     
@@ -87,11 +95,16 @@
 - (void)setupSolutionsTable {
     CGFloat yValue = CGRectGetMaxY([self boardViewFrame]) + 10;
     
-    solutionTable = [[UITableView alloc] initWithFrame:CGRectMake(10, yValue, 300, self.view.frame.size.height - yValue - 10) style:UITableViewStylePlain];
+    CGFloat totalHeight = [[UIScreen mainScreen] applicationFrame].size.height;
+    solutionTable = [[UITableView alloc] initWithFrame:CGRectMake(10, yValue, 300, totalHeight - yValue - 10) style:UITableViewStylePlain];
     [[solutionTable layer] setCornerRadius:5];
     [solutionTable setDataSource:self];
     [solutionTable setDelegate:self];
     [self.view addSubview:solutionTable];
+    
+    solutionTable.layer.borderColor = [[UIColor colorWithWhite:0.85 alpha:1] CGColor];
+    solutionTable.layer.borderWidth = 1 / [[UIScreen mainScreen] scale];
+    solutionTable.backgroundColor = [UIColor colorWithRed:1 green:0.93 blue:0.80 alpha:1];
 }
 
 #pragma mark - Events -
@@ -173,11 +186,22 @@
     [boardView animateToFrame:CGRectMake(usableRect.size.width / 2 - scaledSize / 2,
                                          usableRect.origin.y + 10, scaledSize, scaledSize)
                      duration:[duration doubleValue]];
+    
+    CGRect solutionFrame = solutionTable.frame;
+    CGFloat minY = self.view.frame.size.height - frame.size.height;
+    if (minY < solutionFrame.origin.y) return;
+    solutionFrame.origin.y = minY;
+    [UIView animateWithDuration:[duration doubleValue] animations:^{
+        solutionTable.frame = solutionFrame;
+    }];
 }
 
 - (void)keyboardWillHide:(NSNotification *)notification {
     NSNumber * duration = [[notification userInfo] objectForKey:UIKeyboardAnimationDurationUserInfoKey];
     [boardView animateToFrame:[self boardViewFrame] duration:[duration doubleValue]];
+    [UIView animateWithDuration:[duration doubleValue] animations:^{
+        solutionTable.frame = [self solutionTableFrame];
+    }];
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {

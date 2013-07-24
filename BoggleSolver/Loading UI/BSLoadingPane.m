@@ -20,7 +20,7 @@
         statusLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, 15, kBSLoadingPaneSize - 20, 20)];
         [statusLabel setBackgroundColor:[UIColor clearColor]];
         [statusLabel setTextColor:[UIColor whiteColor]];
-        [statusLabel setTextAlignment:UITextAlignmentCenter];
+        [statusLabel setTextAlignment:NSTextAlignmentCenter];
         [statusLabel setText:aStatus];
         
         activityIndicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhite];

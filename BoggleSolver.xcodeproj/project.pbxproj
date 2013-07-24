@@ -25,6 +25,7 @@
 		FA8AB07B14DC83590098BAA2 /* BSLoadingPane.m in Sources */ = {isa = PBXBuildFile; fileRef = FA8AB07A14DC83590098BAA2 /* BSLoadingPane.m */; };
 		FA8AB07E14DC85040098BAA2 /* BSLoadingController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA8AB07D14DC85040098BAA2 /* BSLoadingController.m */; };
 		FA8AB08114DC850E0098BAA2 /* BSLoadingScreen.m in Sources */ = {isa = PBXBuildFile; fileRef = FA8AB08014DC850E0098BAA2 /* BSLoadingScreen.m */; };
+		FAD69DF717A04A6600B0B141 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FAD69DF617A04A6600B0B141 /* Default-568h@2x.png */; };
 		FADC72C214D9E4550042FA22 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FADC72C114D9E4550042FA22 /* UIKit.framework */; };
 		FADC72C414D9E4550042FA22 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FADC72C314D9E4550042FA22 /* Foundation.framework */; };
 		FADC72C614D9E4550042FA22 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FADC72C514D9E4550042FA22 /* CoreGraphics.framework */; };
@@ -64,6 +65,7 @@
 		FA8AB07D14DC85040098BAA2 /* BSLoadingController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BSLoadingController.m; sourceTree = "<group>"; };
 		FA8AB07F14DC850E0098BAA2 /* BSLoadingScreen.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BSLoadingScreen.h; sourceTree = "<group>"; };
 		FA8AB08014DC850E0098BAA2 /* BSLoadingScreen.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BSLoadingScreen.m; sourceTree = "<group>"; };
+		FAD69DF617A04A6600B0B141 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		FADC72BD14D9E4550042FA22 /* BoggleSolver.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BoggleSolver.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FADC72C114D9E4550042FA22 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		FADC72C314D9E4550042FA22 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -170,6 +172,7 @@
 		FADC72B214D9E4550042FA22 = {
 			isa = PBXGroup;
 			children = (
+				FAD69DF617A04A6600B0B141 /* Default-568h@2x.png */,
 				FA2C36EC14DB6EA900D07ECD /* Boggle API */,
 				FADC72C714D9E4550042FA22 /* BoggleSolver */,
 				FADC72F014D9EAD20042FA22 /* BSTests */,
@@ -336,6 +339,7 @@
 				FADC72CC14D9E4550042FA22 /* InfoPlist.strings in Resources */,
 				FADC72D814D9E4550042FA22 /* ViewController.xib in Resources */,
 				FADC732114DA11F70042FA22 /* dictionary.txt in Resources */,
+				FAD69DF717A04A6600B0B141 /* Default-568h@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -483,7 +487,9 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BoggleSolver/BoggleSolver-Prefix.pch";
 				INFOPLIST_FILE = "BoggleSolver/BoggleSolver-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -494,7 +500,9 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BoggleSolver/BoggleSolver-Prefix.pch";
 				INFOPLIST_FILE = "BoggleSolver/BoggleSolver-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
