@@ -137,7 +137,13 @@
 }
 
 - (void)handleSolutionArray:(NSArray *)_solutions {
-    solutions = _solutions;
+    solutions = [_solutions sortedArrayUsingComparator:^NSComparisonResult(id obj1, id obj2) {
+        NSString * word1 = [obj1 word];
+        NSString * word2 = [obj2 word];
+        if ([word1 length] < [word2 length]) return NSOrderedDescending;
+        if ([word1 length] > [word2 length]) return NSOrderedAscending;
+        return [word1 caseInsensitiveCompare:word2];
+    }];
     [solutionTable reloadData];
     [[BSLoadingController sharedLoadingController] closeLoadingScreen];
 }
